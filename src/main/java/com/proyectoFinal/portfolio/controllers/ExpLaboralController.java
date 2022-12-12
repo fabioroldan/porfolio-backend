@@ -24,7 +24,7 @@ public class ExpLaboralController {
     @Autowired
     ExpLaboralService expLaboralService;
     
-    @GetMapping("/all")
+    @GetMapping("/lista")
     public List<ExpLaboralModel>getExpLaboral(){
         return expLaboralService.getExpLaboral();
     }

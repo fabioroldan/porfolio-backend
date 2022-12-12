@@ -24,10 +24,11 @@ public class PersonaController {
     @Autowired
     PersonaService personaService;
 
-    @GetMapping("/all")
+    @GetMapping("/lista")
     public List<PersonaModel> getPersona() {
         return personaService.getPersona();
     }
+    
      @GetMapping("/mensaje")
     public String getMensaje() {
         return "Esto es un mensaje desde la api de persona!";

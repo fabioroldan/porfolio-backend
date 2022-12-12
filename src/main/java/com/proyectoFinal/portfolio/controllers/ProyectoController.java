@@ -24,7 +24,7 @@ public class ProyectoController {
     @Autowired
     ProyectoService proyectoService;
     
-    @GetMapping("/all")
+    @GetMapping("/lista")
     public List<ProyectoModel>getProyecto(){
         return proyectoService.getProyecto();
     }

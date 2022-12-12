@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "skill")
+@Table(name = "habilidad")
 @Getter @Setter
-public class SkillModel {
+public class HabilidadModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

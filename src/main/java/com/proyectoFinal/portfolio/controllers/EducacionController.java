@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/education")
+@RequestMapping("/api/educacion")
 public class EducacionController {
 
     @Autowired
     EducacionService educationService;
 
-    @GetMapping("/all")
+    @GetMapping("/lista")
     public List<EducacionModel> getEducacion() {
         return educationService.getEducacion();
     }
