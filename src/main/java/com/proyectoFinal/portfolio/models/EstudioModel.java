@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "educacion")
+@Table(name = "estudio")
 @Getter
 @Setter
 public class EstudioModel {
