@@ -26,7 +26,7 @@ public class HabilidadController {
 
     @GetMapping("/lista")
     public List<HabilidadModel> getAllHabilidads() {
-        return habilidadService.getHabilidad();
+        return habilidadService.getHabilidades();
     }
     
      @GetMapping("/traerporid/{id}")
@@ -35,7 +35,7 @@ public class HabilidadController {
         return new ResponseEntity(habilidad, HttpStatus.OK);
     }
     
-    @GetMapping("/query")
+    @GetMapping("/traerpor")
     //ATENCIÓN...acá se tuvo q crear método en Repository para luego llamarlo en el Service y luego poder llamarlo acá.
     public List<HabilidadModel> getHabilidadByTipo(@RequestParam("tipo") String tipo) {
         return habilidadService.getHabilidadByTipo(tipo);
@@ -64,6 +64,7 @@ public class HabilidadController {
         habilidadService.saveHabilidad(sk);
         return new ResponseEntity(HttpStatus.OK);
     }
+    
     /*@PutMapping("/editar/{id}")
     public HabilidadModel editHabilidad(@PathVariable Long id,
                                     @RequestParam("tipo") String nuevotipo,

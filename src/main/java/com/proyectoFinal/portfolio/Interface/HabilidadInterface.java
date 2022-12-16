@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface HabilidadInterface {
     //Traer Habilidad
-    public List<HabilidadModel> getHabilidad();
+    public List<HabilidadModel> getHabilidades();
     
     //Guardar Habilidad
     public void saveHabilidad(HabilidadModel habilidad);

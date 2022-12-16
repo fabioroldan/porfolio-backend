@@ -19,5 +19,6 @@ public class HabilidadModel {
     
     private String tipo;
     private String nombre;
+    private String imagen;
     private int porcentaje;
 }

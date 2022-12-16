@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="proyectos")
+@Table(name="proyecto")
 @Getter @Setter
 public class ProyectoModel {
     
@@ -19,11 +19,11 @@ public class ProyectoModel {
     private Long id;
     
     private String nombre;
-    private int fecha;
+    private int anio;
     private String imagen;
     
     @Lob
     private String descripcion;
     
-    private String link;
+    private String URL;
 }

@@ -20,53 +20,55 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/proyecto")
 public class ProyectoController {
-    
+
     @Autowired
     ProyectoService proyectoService;
-    
-    @GetMapping("/lista")
-    public List<ProyectoModel>getProyecto(){
-        return proyectoService.getProyecto();
+
+    @GetMapping("/listar")
+    public List<ProyectoModel> getProyectos() {
+        return proyectoService.getProyectos();
     }
-    
+
     @GetMapping("/traerporid")
-    public ProyectoModel findProyecto(){
+    public ProyectoModel findProyecto() {
         return proyectoService.findProyecto(Long.MIN_VALUE);
     }
-    
+
     @PostMapping("/crear")
-    public ResponseEntity createProyecto(@RequestBody ProyectoModel proyec){
+    public ResponseEntity createProyecto(@RequestBody ProyectoModel proyec) {
         proyectoService.saveProyecto(proyec);
         return ResponseEntity.ok().body(proyec);
     }
-   
+
     @DeleteMapping("/borrar/{id}")
     public ResponseEntity<?> eliminarProyecto(@PathVariable("id") Long id) {
         proyectoService.deleteProyecto(id);
         return new ResponseEntity(HttpStatus.OK);
     }
-    
+
     @PutMapping("/editar/{id}")
     public ResponseEntity<?> editProyecto(@PathVariable("id") Long id, @RequestBody ProyectoModel proyecto) {
         ProyectoModel proy = proyectoService.findProyecto(id);
-
+        
         proy.setNombre(proyecto.getNombre());
-        proy.setFecha(proyecto.getFecha());
+        proy.setAnio(proyecto.getAnio());
         proy.setImagen(proyecto.getImagen());
         proy.setDescripcion(proyecto.getDescripcion());
-        proy.setLink(proyecto.getLink());
+        proy.setURL(proyecto.getURL());
 
         proyectoService.saveProyecto(proy);
         return new ResponseEntity(HttpStatus.OK);
     }
-    
+
     /*@PutMapping("/editar/{id}")
-    public ProyectoModel editProyecto(@PathVariable Long id,
-                                    @RequestParam("nombre") String nuevonombre,
-                                    @RequestParam("fecha") int nuevofecha,
-                                    @RequestParam("imagen") String nuevoimagen,
-                                    @RequestParam("descripcion") String nuevodescripcion,
-                                    @RequestParam("link") String nuevolink){
+    public ProyectoModel editProyecto(
+        @PathVariable Long id,
+        @RequestParam("nombre") String nuevonombre,
+        @RequestParam("fecha") int nuevofecha,
+        @RequestParam("imagen") String nuevoimagen,
+        @RequestParam("descripcion") String nuevodescripcion,
+        @RequestParam("link") String nuevolink ){
+    
         ProyectoModel proyecto = proyectoService.findProyecto(id);
         
         proyecto.setNombre(nuevonombre);
@@ -78,8 +80,7 @@ public class ProyectoController {
         proyectoService.saveProyecto(proyecto);
         return proyecto;
     }*/
-    
-    /*@GetMapping("/{id}")
+ /*@GetMapping("/{id}")
     public ProyectoModel getProyectoById(@PathVariable("id") Long id){
         return proyectoService.getProyectoById(id);
     }

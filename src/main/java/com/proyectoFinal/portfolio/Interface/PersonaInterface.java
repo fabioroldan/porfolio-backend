@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PersonaInterface {
     //Traer personas
-    public List<PersonaModel> getPersona();
+    public List<PersonaModel> getPersonas();
     
     //Guardar persona
     public void savePersona(PersonaModel perso);

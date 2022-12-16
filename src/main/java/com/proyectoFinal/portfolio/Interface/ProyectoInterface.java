@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProyectoInterface {
     //Traer Proyecto
-    public List<ProyectoModel> getProyecto();
+    public List<ProyectoModel> getProyectos();
     
     //Guardar Proyecto
     public void saveProyecto(ProyectoModel proyec);

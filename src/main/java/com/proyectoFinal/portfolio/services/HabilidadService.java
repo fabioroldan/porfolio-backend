@@ -14,7 +14,7 @@ public class HabilidadService implements HabilidadInterface {
     HabilidadRepository habilidadRepository;
 
     @Override
-    public List<HabilidadModel> getHabilidad() {
+    public List<HabilidadModel> getHabilidades() {
         List<HabilidadModel> habilidad = habilidadRepository.findAll();
         return habilidad;
     }

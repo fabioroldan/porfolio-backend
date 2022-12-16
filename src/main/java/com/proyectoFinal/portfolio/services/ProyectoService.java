@@ -14,7 +14,7 @@ public class ProyectoService implements ProyectoInterface {
     ProyectoRepository proyectoRepository;
 
     @Override
-    public List<ProyectoModel> getProyecto() {
+    public List<ProyectoModel> getProyectos() {
         List<ProyectoModel> proyec = proyectoRepository.findAll();
         return proyec;
     }

@@ -24,9 +24,9 @@ public class PersonaController {
     @Autowired
     PersonaService personaService;
 
-    @GetMapping("/lista")
-    public List<PersonaModel> getPersona() {
-        return personaService.getPersona();
+    @GetMapping("/listar")
+    public List<PersonaModel> getPersonas() {
+        return personaService.getPersonas();
     }
     
      @GetMapping("/mensaje")
@@ -59,16 +59,20 @@ public class PersonaController {
     
     @PutMapping("/editar/{id}")
     public ResponseEntity <?> editPersona(@PathVariable("id") Long id, @RequestBody PersonaModel persona) {
-        PersonaModel perso = personaService.findPersona(id);
+        PersonaModel pers = personaService.findPersona(id);
+        
+        pers.setNombre(persona.getNombre());
+        pers.setApellido(persona.getApellido());
+        pers.setFechaDeNacimiento(persona.getFechaDeNacimiento());
+        pers.setNacionalidad(persona.getNacionalidad());
+        pers.setMail(persona.getMail());
+        pers.setSobreMi(persona.getSobreMi());
+        pers.setOcupacion(persona.getOcupacion());
+        pers.setImgPerfil(persona.getImgPerfil());
+        pers.setImgCabecera(persona.getImgCabecera());
+        pers.setDireccion(persona.getDireccion());
 
-        perso.setNombre(persona.getNombre());
-        perso.setApellido(persona.getApellido());
-        perso.setTitulo(persona.getTitulo());
-        perso.setDescripcion(persona.getDescripcion());
-        perso.setImage_perfil(persona.getImage_perfil());
-        perso.setBanner(persona.getBanner());
-
-        personaService.savePersona(perso);
+        personaService.savePersona(pers);
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -109,7 +113,7 @@ public class PersonaController {
     public PersonaModel savePerson(@RequestBody PersonaModel persona){
         return personaService.savePerson(persona);
         //En Postman, para crear una Persona, no tengo q especificar el "id" xq una "persona" nueva
-        //no tiene "id", sino q se le asigna automáticamente, además me va a modificar una persina existente.
+        //no tiene "id", sino q se le asigna automáticamente, además me va a modificar una persona existente.
         //Tengo q definir los demás atributos, en este caso: nombre, apellido, url_img
     }
     
@@ -127,7 +131,5 @@ public class PersonaController {
             return "La persona con id "+id+" no pudo ser eliminada.";
         }
     }
-    
-    
     }*/
 }

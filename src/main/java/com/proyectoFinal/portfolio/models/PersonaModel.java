@@ -12,26 +12,33 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "persona")
-@Getter @Setter
+@Getter
+@Setter
 public class PersonaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String nombre;
-    private String apellido
-;    private String titulo;    
-    
-    @Lob
-    private String descripcion;
 
-    @Column(name = "url_img", length = 2048)
-    private String image_perfil;
+    private String nombre;
+    private String apellido;
+    private String fechaDeNacimiento;
+    private String nacionalidad;
+    private String mail;
+   
+    @Lob
+    private String sobreMi;
+    private String ocupacion;
     
-    @Column(name = "url_banner", length = 2048)
-    private String banner;
-  
+    @Column( length = 2048)
+    private String imgCabecera;
+    
+    @Column( length = 2048)
+    private String imgPerfil;
+    
+    private String direccion;
+//    redesSociales
+     
     public Long getId() {
         return id;
     }

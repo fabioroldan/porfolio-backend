@@ -14,14 +14,14 @@ public class PersonaService implements PersonaInterface {
     PersonaRepository personaRepository;
     
     @Override
-    public List<PersonaModel> getPersona() {
+    public List<PersonaModel> getPersonas() {
         List<PersonaModel> personas = personaRepository.findAll();
         return personas;
     }
 
     @Override
-    public void savePersona(PersonaModel perso) {
-        personaRepository.save(perso);
+    public void savePersona(PersonaModel pers) {
+        personaRepository.save(pers);
     }
 
     @Override
